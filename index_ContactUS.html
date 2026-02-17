@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style_ContactUS.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">Portfolio</a>
+
+            <button class="navbar-toggle" id="navbarToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index_Projects.html">Classwork</a></li>
+                <li><a href="index_WeatherApp.html">Weather App</a></li>    
+                <li><a href="#" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav> 
+
+    <!-- Contact Form -->
+    <div class="container" id="contactApp">
+        <h1>Contact Us</h1>
+        <form @submit.prevent="submitForm">
+            <input type="text" v-model="userName" placeholder="Enter Your Name" required>
+            <input type="email" v-model="userEmail" placeholder="Enter Your Email" required>
+            <textarea v-model="userMessage" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+            <p v-if="formMessage" :class="['form-message', messageType]">{{ formMessage }}</p>
+        </form>
+    </div>   
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script_ContactUS_vue.js" defer></script>
+
+</body>
+</html>
